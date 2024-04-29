@@ -1,0 +1,27 @@
+
+  <div class="author">
+    <h1 class="author__heading">Search Results</h1>
+  </div>
+
+  <section class="articles">
+     <ul class="article-ul">
+    <% data.forEach((post) => { %>
+    <% 
+    const numericDate = Number.parseInt(post.createdAt)
+    const date = new Date(numericDate);
+    const postDate = date.toLocaleDateString('en-UK', { 
+    year: 'numeric', 
+    month: 'numeric', 
+    day: 'numeric' 
+    }); 
+    %>
+        <li>
+          <a href="/post/<%= post._id %>">
+            <span><%= post.title %></span>
+            <span class="article-list__date"><%= postDate%></span>
+          </a>
+        </li>
+    <% } )%>
+  </ul>
+  </section>
+

@@ -1,0 +1,42 @@
+<div class="author">
+  <h1 class="author__heading">Hi, I am Islam.</h1>
+  <p class="author__body">Software Engineer and Web developer</p>
+</div>
+
+<img
+  src="/img/hero-image.webp"
+  alt="person looking out through window"
+  class="hero-image"
+  width="981"
+  height="528"
+/>
+
+<section class="articles">
+  <h2 class="articles__heading">Latest Posts</h2>
+
+  <ul class="article-ul">
+    <% data.forEach((post) => { %>
+    <% 
+    const numericDate = Number.parseInt(post.createdAt)
+    const date = new Date(numericDate);
+    const postDate = date.toLocaleDateString('en-UK', { 
+    year: 'numeric', 
+    month: 'numeric', 
+    day: 'numeric' 
+    }); 
+    %>
+        <li>
+          <a href="/post/<%= post._id %>">
+            <span><%= post.title %></span>
+            <span class="article-list__date"><%= postDate%></span>
+          </a>
+        </li>
+    <% } )%>
+  </ul>
+<% if (nextPage !== null) { %>
+    <a href="/?page=<%= nextPage %>" class="pagination">&lt; View Older Posts</a>
+ 
+<% }%>
+   
+
+</section>
