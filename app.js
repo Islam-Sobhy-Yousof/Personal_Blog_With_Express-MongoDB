@@ -54,6 +54,6 @@ app.use((req, res) => {
   res.render('404');
 });
 const localIP = getLocalIPAddress();
-app.listen(port,localIP, () => {
+app.listen(port, () => {
   console.log(`App is listening on port ${port} and your ip is: ${localIP}`);
 });
